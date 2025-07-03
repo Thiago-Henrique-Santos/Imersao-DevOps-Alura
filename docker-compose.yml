@@ -1,0 +1,15 @@
+services:
+  app:
+    # Constrói a imagem a partir do Dockerfile no diretório atual (.)
+    build: .
+    # Define o nome do contêiner como 'api-imersao-alura-devops'
+    container_name: api-imersao-alura-devops
+    # Mapeia a porta 8001 do contêiner para a porta 8001 da sua máquina host
+    ports:
+      - "8001:8001"
+    # Monta o diretório atual do projeto no diretório /app dentro do contêiner
+    # Isso permite que as alterações no código sejam refletidas instantaneamente
+    # no contêiner, o que é ideal para desenvolvimento com --reload.
+    # Também garante que o banco de dados 'escola.db' seja salvo na sua máquina.
+    volumes:
+      - .:/app
